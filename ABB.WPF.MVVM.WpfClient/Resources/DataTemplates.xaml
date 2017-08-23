@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:m="clr-namespace:ABB.WPF.MVVM.Models;assembly=ABB.WPF.MVVM.Models"
+                    >
+
+
+    <DataTemplate x:Key="MenuItemTemplate">
+        <TextBlock Text="{Binding Caption}" />
+    </DataTemplate>
+
+
+    <DataTemplate DataType="{x:Type m:MenuItem}">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding Caption}" Style="{StaticResource CaptionStyle}" />
+            <TextBlock Text="{Binding Name}" />
+            <TextBlock Text="{Binding MenuItemId}" />
+        </StackPanel>
+    </DataTemplate>
+
+
+</ResourceDictionary>
