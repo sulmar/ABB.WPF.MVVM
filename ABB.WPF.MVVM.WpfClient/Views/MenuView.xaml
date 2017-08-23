@@ -1,0 +1,47 @@
+﻿<Window x:Class="ABB.WPF.MVVM.WpfClient.Views.MenusView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ABB.WPF.MVVM.WpfClient.Views"
+        xmlns:vm="clr-namespace:ABB.WPF.MVVM.WpfClient.ViewModels"
+        mc:Ignorable="d"
+        Title="MenusView" Height="300" Width="300">
+
+    <Window.DataContext>
+        <vm:MenuViewModel />
+    </Window.DataContext>
+    
+    <Grid>
+
+        
+        <StackPanel>
+
+
+            <Menu ItemsSource="{Binding Menu.MenuItems}"
+                  ItemTemplate="{StaticResource MenuItemTemplate}">
+
+            
+                
+            </Menu>
+
+            <!--<ListBox ItemsSource="{Binding Menu.MenuItems}"
+                     ItemTemplate="{StaticResource MenuItemTemplate}"
+                     />-->
+
+            <ListBox ItemsSource="{Binding Menu.MenuItems}" />
+
+            <TextBox Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}"/>
+            
+            <Button Command="{Binding PrintCommand}">Print</Button>
+            <Button Command="{Binding SendCommand}">Send</Button>
+            <Button Style="{StaticResource SubmitButtonStyle}">Save</Button>
+            <Button Style="{StaticResource CancelButtonStyle}">Cancel</Button>
+
+
+           
+
+        </StackPanel>
+
+    </Grid>
+</Window>
