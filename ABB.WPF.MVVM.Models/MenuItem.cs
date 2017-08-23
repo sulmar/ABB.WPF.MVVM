@@ -14,12 +14,24 @@ namespace ABB.WPF.MVVM.Models
 
         public string Caption { get; set; }
 
+        public PageContent PageContent { get; set; }
+
+        public MenuItemType MenuItemType { get; set; }
+
+
+       
 
         public override string ToString()
         {
             return Caption;
         }
-
-
     }
+
+    public enum MenuItemType
+    {
+        Dynamic,
+
+        Static
+    }
+
 }

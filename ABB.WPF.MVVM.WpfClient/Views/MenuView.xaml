@@ -33,7 +33,7 @@
 
             <TextBox Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}"/>
             
-            <Button Command="{Binding PrintCommand}">Print</Button>
+            <Button Command="{Binding PrintCommand}" CommandParameter="PDF" >Print</Button>
             <Button Command="{Binding SendCommand}">Send</Button>
             <Button Style="{StaticResource SubmitButtonStyle}">Save</Button>
             <Button Style="{StaticResource CancelButtonStyle}">Cancel</Button>
