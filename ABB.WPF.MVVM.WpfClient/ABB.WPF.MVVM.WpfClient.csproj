@@ -54,17 +54,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +89,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Resources\DataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Content Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Page Include="Views\MenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ABB.WPF.MVVM.Common\ABB.WPF.MVVM.Common.csproj">
+      <Project>{521f3bd4-e9e4-4827-ac0b-cec7af8513a8}</Project>
+      <Name>ABB.WPF.MVVM.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ABB.WPF.MVVM.Models\ABB.WPF.MVVM.Models.csproj">
+      <Project>{c533e01c-f69b-449f-9900-cbb6b31ed8ee}</Project>
+      <Name>ABB.WPF.MVVM.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ABB.WPF.MVVM.Services\ABB.WPF.MVVM.Services.csproj">
+      <Project>{2dc3bcf4-fdd5-425d-9efb-3885d1f25f1c}</Project>
+      <Name>ABB.WPF.MVVM.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
