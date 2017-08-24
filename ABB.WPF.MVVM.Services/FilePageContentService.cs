@@ -10,12 +10,12 @@ namespace ABB.WPF.MVVM.Services
 {
     public class FilePageContentService : IPageContentService
     {
-        private const string BaseDir = @"DataStore\";
+        private const string BaseDir = @"DataStore";
 
         public PageContent Get(string name)
         {
-            string filename = BaseDir + name + ".txt";
-
+            string filename = Path.Combine(BaseDir, name.ToLower() + ".txt");
+                
             var lines = File.ReadAllLines(filename);
 
             PageContent pageContent = new PageContent();
@@ -42,6 +42,12 @@ namespace ABB.WPF.MVVM.Services
             if (values.Length > 3)
             {
                 item.Parameters = values[3];
+
+                switch(item.Type)
+                {
+                    case "TextBox": item.Value = item.Parameters; break;
+                }
+                
             }
 
             return item;
