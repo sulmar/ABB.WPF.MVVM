@@ -16,6 +16,9 @@
             <TextBlock Text="{Binding MenuItemId}" />
         </StackPanel>
     </DataTemplate>
+    
+    
+    
 
 
 </ResourceDictionary>

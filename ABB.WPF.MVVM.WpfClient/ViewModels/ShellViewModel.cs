@@ -1,6 +1,7 @@
 ﻿using ABB.WPF.MVVM.Common;
 using ABB.WPF.MVVM.Models;
 using ABB.WPF.MVVM.Services;
+using ABB.WPF.MVVM.WpfClient.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,8 @@ namespace ABB.WPF.MVVM.WpfClient.ViewModels
 
         private readonly IMenuService menuService;
 
-        public ShellViewModel() : this(new MockMenuService())
-        {
-        }
-
-        public ShellViewModel(IMenuService menuService)
+        public ShellViewModel(INavigationService navigationService, IMenuService menuService)
+            : base(navigationService)
         {
             this.menuService = menuService;
 
@@ -77,12 +75,13 @@ namespace ABB.WPF.MVVM.WpfClient.ViewModels
 
         private void SelectDynamicItem(MenuItem item)
         {
-
+            navigationService.Navigate<PageView>(item);
+            
         }
 
         private void SelectStaticItem(MenuItem item)
         {
-
+            navigationService.Navigate(item.Name + "View", item);
         }
 
 
