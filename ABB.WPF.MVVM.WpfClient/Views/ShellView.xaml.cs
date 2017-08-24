@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ABB.WPF.MVVM.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace ABB.WPF.MVVM.WpfClient.Views
             InitializeComponent();
 
           
+
         }
     }
 }

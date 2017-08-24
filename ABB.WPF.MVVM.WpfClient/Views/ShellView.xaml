@@ -4,13 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ABB.WPF.MVVM.WpfClient.Views"
-        xmlns:vm="clr-namespace:ABB.WPF.MVVM.WpfClient.ViewModels"
+        DataContext="{Binding ShellViewModel, Source={StaticResource ViewModelLocator}}"
         mc:Ignorable="d"
+        WindowState="Maximized"
         Title="ShellView" Height="300" Width="300">
 
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <vm:ShellViewModel />
-    </Window.DataContext>
+    </Window.DataContext>-->
+    
+    
     <Grid>
 
         <DockPanel>
@@ -37,7 +40,7 @@
                 <StatusBarItem>Item 2</StatusBarItem>
             </StatusBar>
 
-            <Frame x:Name="ShellFrame" Source="StartView.xaml">
+            <Frame x:Name="ShellFrame">
 
             </Frame>
 
