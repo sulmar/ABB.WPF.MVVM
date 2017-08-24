@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ABB.WPF.MVVM.WpfClient.Resources">
+
+
+
+    <DataTemplate x:Key="LabelTemplate">
+        <Label Content="{Binding Parameters}" IsTabStop="False" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ButtonTemplate">
+        <Button Content="{Binding Parameters}" />
+    </DataTemplate>
+
+
+    <DataTemplate x:Key="TextBoxTemplate">
+        <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}" />
+    </DataTemplate>
+
+
+    <DataTemplate x:Key="CheckBoxTemplate">
+        <CheckBox Content="{Binding Parameters}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ComboBoxTemplate">
+        <ComboBox />
+    </DataTemplate>
+
+</ResourceDictionary>
