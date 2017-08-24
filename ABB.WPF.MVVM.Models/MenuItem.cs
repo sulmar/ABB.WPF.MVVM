@@ -19,8 +19,6 @@ namespace ABB.WPF.MVVM.Models
         public MenuItemType MenuItemType { get; set; }
 
 
-       
-
         public override string ToString()
         {
             return Caption;
