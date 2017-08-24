@@ -1,0 +1,5 @@
+11|label2|Label|EMS HEADER
+12|TextBox2|TextBox
+13|Button2|Button|Save
+14|CheckBox2|CheckBox|Do you like it?
+15|ComboBox2|ComboBox|ListOfTrueFalse

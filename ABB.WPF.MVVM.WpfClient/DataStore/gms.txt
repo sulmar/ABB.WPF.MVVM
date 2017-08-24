@@ -1,0 +1,5 @@
+21|label3|Label|GMS HEADER
+22|TextBox3|TextBox|100
+23|Button3|Button|Save
+24|CheckBox3|CheckBox|Do you like it?
+25|ComboBox3|ComboBox|aaa,bbb,ccc

@@ -1,4 +1,4 @@
-1|label1|label|OMS HEADER
+1|label1|Label|OMS HEADER
 2|TextBox1|TextBox
 3|Button1|Button|Save
 4|CheckBox1|CheckBox|Do you like it?
