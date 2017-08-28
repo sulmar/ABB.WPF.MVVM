@@ -18,7 +18,8 @@
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadCommand}" />
+            <i:InvokeCommandAction Command="{Binding LoadAsyncCommand}" />
+            <!--<i:InvokeCommandAction Command="{Binding LoadCommand}" />-->
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
@@ -40,6 +41,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        
+        
+        <ProgressBar 
 
     </Grid>
 </Page>

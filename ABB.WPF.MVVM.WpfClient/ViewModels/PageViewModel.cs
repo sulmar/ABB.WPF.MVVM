@@ -54,13 +54,39 @@ namespace ABB.WPF.MVVM.WpfClient.ViewModels
             }
         }
 
-      
+
+        private ICommand _LoadAsyncCommand;
+        public ICommand LoadAsyncCommand
+        {
+            get
+            {
+                if (_LoadAsyncCommand == null)
+                {
+                    _LoadAsyncCommand = new AsyncRelayCommand(() => LoadAsync());
+                }
+
+                return _LoadAsyncCommand;
+            }
+        }
+
+
+
 
         private void Load()
         {
             MenuItem menuItem = (MenuItem)navigationService.Parameter;
 
             PageContent = pageContentService.Get(menuItem.Name);
+
+            // Podpinamy notyfikację do wszystkich elementów
+            Subscribe();
+        }
+
+        private async Task LoadAsync()
+        {
+            MenuItem menuItem = (MenuItem)navigationService.Parameter;
+
+            PageContent = await pageContentService.GetAsync(menuItem.Name);
 
             // Podpinamy notyfikację do wszystkich elementów
             Subscribe();

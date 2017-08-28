@@ -26,9 +26,15 @@ namespace ABB.WPF.MVVM.Services
                 pageContent.Items.Add(Map(line));
             }
 
-         //   Thread.Sleep(TimeSpan.FromSeconds(5));
+            // Opóźnienie w celach demonstracyjnych
+            Thread.Sleep(TimeSpan.FromSeconds(5));
 
             return pageContent;
+        }
+
+        public Task<PageContent> GetAsync(string name)
+        {
+            return Task.Run(() => Get(name));
         }
 
         private PageItem Map(string line, char separator = '|')
