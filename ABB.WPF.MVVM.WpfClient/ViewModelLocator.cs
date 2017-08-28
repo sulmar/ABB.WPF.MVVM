@@ -12,5 +12,6 @@ namespace ABB.WPF.MVVM.WpfClient
     {
         public ShellViewModel ShellViewModel => new ShellViewModel(App.NavigationService, new MockMenuService());
         public PageViewModel PageViewModel => new PageViewModel(App.NavigationService, new FilePageContentService());
+        public StartViewModel StartViewModel => new StartViewModel(App.NavigationService, new MockBusinessesService());
     }
 }

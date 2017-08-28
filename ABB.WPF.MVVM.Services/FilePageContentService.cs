@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ABB.WPF.MVVM.Models;
 using System.IO;
+using System.Threading;
 
 namespace ABB.WPF.MVVM.Services
 {
@@ -24,6 +25,8 @@ namespace ABB.WPF.MVVM.Services
             {
                 pageContent.Items.Add(Map(line));
             }
+
+         //   Thread.Sleep(TimeSpan.FromSeconds(5));
 
             return pageContent;
         }

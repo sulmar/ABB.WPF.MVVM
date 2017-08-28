@@ -1,4 +1,5 @@
 ﻿using ABB.WPF.MVVM.Common;
+using ABB.WPF.MVVM.Models;
 using ABB.WPF.MVVM.WpfClient.Views;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,15 @@ namespace ABB.WPF.MVVM.WpfClient
     {
         public static NavigationService NavigationService;
 
+        public static AppContext AppContext { get; set; }
+
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
             NavigationService = new NavigationService();
+            AppContext = new AppContext();
 
             // odpowiednik StartupUri w XAML
             ShellView shellView = new ShellView();
@@ -37,4 +42,6 @@ namespace ABB.WPF.MVVM.WpfClient
 
         }
     }
+
+
 }

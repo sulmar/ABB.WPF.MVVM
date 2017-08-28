@@ -15,7 +15,7 @@ namespace ABB.WPF.MVVM.WpfClient.ViewModels
         public ViewModelBase(INavigationService navigationService = null)
         {
             this.navigationService = navigationService;
-        }
 
+        }
     }
 }

@@ -16,6 +16,11 @@
             <TextBlock Text="{Binding MenuItemId}" />
         </StackPanel>
     </DataTemplate>
+
+
+    <DataTemplate x:Key="BusinessTemplate">
+        <TextBlock Text="{Binding Name}" />
+    </DataTemplate>
     
     
     

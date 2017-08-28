@@ -40,9 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbMenuService.cs" />
     <Compile Include="FilePageContentService.cs" />
+    <Compile Include="IBusinessesService.cs" />
     <Compile Include="IPageContentService.cs" />
     <Compile Include="IMenuService.cs" />
+    <Compile Include="MockBusinessesService.cs" />
     <Compile Include="MockMenuService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

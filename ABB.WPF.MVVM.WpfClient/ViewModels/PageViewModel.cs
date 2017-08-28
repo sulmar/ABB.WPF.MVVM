@@ -6,12 +6,26 @@ using System.Threading.Tasks;
 using ABB.WPF.MVVM.Common;
 using ABB.WPF.MVVM.Services;
 using ABB.WPF.MVVM.Models;
+using System.Windows.Input;
 
 namespace ABB.WPF.MVVM.WpfClient.ViewModels
 {
     public class PageViewModel : ViewModelBase
     {
-        public PageContent PageContent { get; set; }
+        private PageContent _PageContent;
+        public PageContent PageContent
+        {
+            get
+            {
+                return _PageContent;
+            }
+
+            set
+            {
+                _PageContent = value;
+                OnPropertyChanged();
+            }
+        }
 
         private readonly IPageContentService pageContentService;
 
@@ -20,8 +34,27 @@ namespace ABB.WPF.MVVM.WpfClient.ViewModels
         {
             this.pageContentService = pageContentService;
 
-            Load();
+           // Load();
         }
+
+
+        #region LoadCommand
+
+        private ICommand _LoadCommand;
+        public ICommand LoadCommand
+        {
+            get
+            {
+                if (_LoadCommand == null)
+                {
+                    _LoadCommand = new RelayCommand(p => Load());
+                }
+
+                return _LoadCommand;
+            }
+        }
+
+      
 
         private void Load()
         {
@@ -46,7 +79,11 @@ namespace ABB.WPF.MVVM.WpfClient.ViewModels
             if (e.PropertyName ==  "Value")
             {
                 // TODO: recalculate or save
+
+                // valuesService.Update(value)
             }
         }
+
+        #endregion
     }
 }

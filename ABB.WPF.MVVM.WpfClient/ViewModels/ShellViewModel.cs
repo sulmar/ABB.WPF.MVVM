@@ -13,7 +13,7 @@ namespace ABB.WPF.MVVM.WpfClient.ViewModels
 {
     public class ShellViewModel : ViewModelBase
     {
-        public Menu Menu { get; set; }
+        public Menu Menu => App.AppContext.Menu;
 
         private readonly IMenuService menuService;
 
@@ -22,18 +22,30 @@ namespace ABB.WPF.MVVM.WpfClient.ViewModels
         {
             this.menuService = menuService;
 
+            App.AppContext.OnSelectedBusiness = LoadMenu;
+
             Load();
         }
 
+        public void LoadMenu(Business business)
+        {
+            // Pobieramy elementy menu dla wybranego biznesu
+            var menuItems = menuService.Get()
+                .Where(m => m.Businesses.Contains(business));
+
+            // Merge
+            Menu.MenuItems = menuItems
+                .Union(Get())
+                .OrderBy(item => item.MenuItemId)
+                .ToList();
+
+            OnPropertyChanged(nameof(Menu));
+
+        }
 
         public void Load()
         {
-            Menu = menuService.Get();
-
-            Menu.MenuItems = Menu.MenuItems
-                .Union(Get()).OrderBy(item=>item.MenuItemId)
-                .ToList();
-
+            Menu.MenuItems = Get();
         }
 
         private IList<MenuItem> Get()

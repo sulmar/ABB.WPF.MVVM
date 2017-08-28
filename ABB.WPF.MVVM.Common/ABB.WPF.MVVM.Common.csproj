@@ -43,6 +43,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsyncRelayCommand.cs" />
     <Compile Include="INavigationService.cs" />
     <Compile Include="NavigationService.cs" />
     <Compile Include="RelayCommand.cs" />

@@ -39,7 +39,7 @@ namespace ABB.WPF.MVVM.WpfClient.ViewModels
 
         public void Load()
         {
-            Menu = menuService.Get();
+            // Menu = menuService.Get();
 
         }
 

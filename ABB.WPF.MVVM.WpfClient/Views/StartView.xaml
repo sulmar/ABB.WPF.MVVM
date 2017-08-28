@@ -4,15 +4,25 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ABB.WPF.MVVM.WpfClient.Views"
+      DataContext="{Binding StartViewModel, Source={StaticResource ViewModelLocator}}"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="StartView">
 
     <Grid>
-        <TextBlock Text="Welcome" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   
-                   />
+
+        <StackPanel>
+            <TextBlock Text="Welcome" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       />
+
+            <ComboBox ItemsSource="{Binding Businesses}"
+                      ItemTemplate="{StaticResource BusinessTemplate}"
+                      SelectedItem="{Binding AppContext.SelectedBusiness}" 
+                      
+                      />
+
+        </StackPanel>
     </Grid>
 </Page>
