@@ -9,7 +9,7 @@ namespace ABB.WPF.MVVM.Services
 {
     public interface IMenuService
     {
-        Menu Get();
+        IList<MenuItem> Get();
     }
 
 }
