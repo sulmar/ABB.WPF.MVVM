@@ -12,6 +12,7 @@ namespace ABB.WPF.MVVM.WpfClient.ViewModels
 {
     public class PageViewModel : ViewModelBase
     {
+        #region PageContent
         private PageContent _PageContent;
         public PageContent PageContent
         {
@@ -26,6 +27,20 @@ namespace ABB.WPF.MVVM.WpfClient.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        #endregion
+
+        #region IsBusy
+
+        private bool _IsBusy;
+
+        public bool IsBusy
+        {
+            get { return _IsBusy; }
+            set { _IsBusy = value; OnPropertyChanged(); }
+        }
+
+        #endregion
 
         private readonly IPageContentService pageContentService;
 
@@ -84,12 +99,16 @@ namespace ABB.WPF.MVVM.WpfClient.ViewModels
 
         private async Task LoadAsync()
         {
+            IsBusy = true;
+
             MenuItem menuItem = (MenuItem)navigationService.Parameter;
 
             PageContent = await pageContentService.GetAsync(menuItem.Name);
 
             // Podpinamy notyfikację do wszystkich elementów
             Subscribe();
+
+            IsBusy = false;
         }
 
         private void Subscribe()

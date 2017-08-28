@@ -13,6 +13,15 @@
 
     <Page.Resources>
         <local:PageItemDataTemplateSelector x:Key="PageItemDataTemplateSelector" />
+
+        <Style x:Key="BusyStyle" TargetType="{x:Type FrameworkElement}">
+            <Setter Property="Visibility" Value="Hidden" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsBusy}" Value="true">
+                    <Setter Property="Visibility" Value="Visible" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
     </Page.Resources>
 
 
@@ -41,9 +50,17 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        
-        
+
+
         <ProgressBar 
+            Width="100"
+            Height="20"
+            Minimum="0" 
+            Maximum="100" 
+            IsIndeterminate="True"
+            Style="{StaticResource BusyStyle}"
+            />
+    
 
     </Grid>
 </Page>
