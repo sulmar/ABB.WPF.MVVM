@@ -8,6 +8,22 @@ namespace ABB.WPF.MVVM.Models
 {
     public class Menu : Base
     {
-        public IList<MenuItem> MenuItems { get; set; }
+
+        private IList<MenuItem> _MenuItems;
+    
+        public IList<MenuItem> MenuItems
+        {
+            get
+            {
+                return _MenuItems;
+            }
+            set
+            {
+                _MenuItems = value;
+                 OnPropertyChanged();
+            }
+        }
+
+      
     }
 }

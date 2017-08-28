@@ -18,6 +18,7 @@ namespace ABB.WPF.MVVM.Models
 
         public MenuItemType MenuItemType { get; set; }
 
+        public IList<Business> Businesses { get; set; }
 
         public override string ToString()
         {
